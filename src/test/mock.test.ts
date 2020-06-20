@@ -5,6 +5,3 @@ describe('App Navigator Presenter should', () => {
         expect(true).toBe(true)
     })
 })
-
-
-beforeEach(() => {})
