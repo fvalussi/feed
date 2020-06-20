@@ -1,7 +1,7 @@
 import {instance, mock, when} from 'ts-mockito'
-import {User} from '../core/domain/users/entities/User'
-import {UserServices} from '../core/domain/users/UserService'
-import {GetUsers} from '../core/useCases/User/GetUsers'
+import {User} from '../../../core/domain/users/entities/User'
+import {UserServices} from '../../../core/domain/users/UserService'
+import {GetUsers} from '../../../core/useCases/User/GetUsers'
 
 describe('GetUser', () => {
     it('should return user list', async () => {
