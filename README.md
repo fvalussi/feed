@@ -1,4 +1,4 @@
-# Boilerplate for React - create-react-app with typescript
+# Boilerplate for React - create-react-ui.app with typescript
 
 Includes git hooks with husky, linter and component tests.
 
