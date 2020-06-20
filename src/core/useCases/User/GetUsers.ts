@@ -5,10 +5,10 @@ export class GetUsers {
     private readonly userServices: UserServices
 
     constructor(userServices: UserServices) {
-        this.userServices = userServices;
+        this.userServices = userServices
     }
 
     public async execute(): Promise<UsersResponse> {
-        return await this.userServices.getUsers()
+        return this.userServices.getUsers()
     }
 }
