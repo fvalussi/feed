@@ -1,7 +1,7 @@
 import React from 'react'
-import logo from './logo.svg'
+import logo from '../logo.svg'
 
-import { Text } from './components'
+import { Text } from '../components'
 
 import './App.css'
 

@@ -2,7 +2,7 @@ import React from 'react'
 // tslint:disable-next-line: no-implicit-dependencies
 import { act, create } from 'react-test-renderer'
 
-import { Text } from './text'
+import { Text } from '../components/text'
 
 describe('Text component tests', () => {
   test('it render', () => {
