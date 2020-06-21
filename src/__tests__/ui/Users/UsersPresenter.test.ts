@@ -9,6 +9,12 @@ describe('User presenter', () => {
         verify(view.showLoading()).calledBefore(getUsersUseCase.execute())
     })
 
+    it('should show loading before fetching users', async () => {
+        await presenter.start()
+
+        verify(view.hideLoading()).calledAfter(getUsersUseCase.execute())
+    })
+
     beforeEach(() => {
         view = mock<UsersView>()
         getUsersUseCase = mock<GetUsers>()

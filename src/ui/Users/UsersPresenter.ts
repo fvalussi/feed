@@ -2,6 +2,8 @@ import {GetUsers} from '../../core/useCases/User/GetUsers'
 
 export interface UsersView {
     showLoading(): void
+
+    hideLoading(): void
 }
 
 export class UsersPresenter {
@@ -16,5 +18,6 @@ export class UsersPresenter {
     async start() {
         this.view.showLoading()
         await this.getUsers.execute()
+        this.view.hideLoading()
     }
 }
