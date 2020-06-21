@@ -7,7 +7,7 @@ import './App.css'
 const App: React.FC = () => {
   return (
     <div className="App">
-      <div>test new  </div>
+      <div>test hola  </div>
         <Text />
     </div>
   )

@@ -9,6 +9,8 @@
     "no-trailing-whitespace": false,
     "interface-name": false,
     "member-access": false,
-    "member-ordering": false
+    "member-ordering": false,
+    "variable-name": false,
+    "max-classes-per-file": false
   }
 }
