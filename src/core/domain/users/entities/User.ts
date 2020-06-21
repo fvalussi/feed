@@ -1,8 +1,10 @@
 export class User {
-    private email: string
+    private id: string
     private name: string
+    private email: string
 
-    constructor(email: string, name: string) {
+    constructor(id: string, email: string, name: string) {
+        this.id = id
         this.email = email
         this.name = name
     }

@@ -1,10 +1,10 @@
-import {UsersResponse} from '../../domain/users/UserResponse'
-import {UserServices} from '../../domain/users/UserService'
+import {UsersResponse} from '../../domain/users/UsersResponse'
+import {UsersService} from '../../domain/users/UsersService'
 
 export class GetUsers {
-    private readonly userServices: UserServices
+    private readonly userServices: UsersService
 
-    constructor(userServices: UserServices) {
+    constructor(userServices: UsersService) {
         this.userServices = userServices
     }
 

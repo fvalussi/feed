@@ -1,5 +1,5 @@
-import {UsersResponse} from './UserResponse'
+import {UserResponse} from './UserResponse'
 
-export interface  UserServices {
-    getUsers(): Promise<UsersResponse>
+export interface UserService {
+    get(someUserId: string): Promise<UserResponse>
 }
