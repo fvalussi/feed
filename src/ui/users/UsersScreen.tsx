@@ -8,7 +8,7 @@ export class UsersScreen extends Presentable<UsersPresenter, State> implements U
         name: '',
     }
 
-    async componentDidMount() { await this.presenter.start(); }
+    async componentDidMount() { await this.presenter.start() }
 
     render() {
         return (

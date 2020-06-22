@@ -11,7 +11,6 @@ export class UsersPresenter {
     private getUsers: GetUsers
 
     constructor(usersView: UsersView, getUsers: GetUsers) {
-        console.log('Debug test', "test")
         this.view = usersView
         this.getUsers = getUsers
     }
