@@ -8,7 +8,7 @@ export class Provider {
 
 class Dependencies {
 
-    static httpClient() { return new HttpClient('baseUrl')}
+    static httpClient() { return new HttpClient('https://randomuser.me/')}
 
     static usersServices() { return this.singleton('usersService', () => new HttpUsersServices(this.httpClient())) }
 
