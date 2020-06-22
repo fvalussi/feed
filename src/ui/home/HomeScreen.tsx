@@ -4,7 +4,7 @@ import { Text } from '@react-md/typography'
 import { Card, CardContent, CardTitle, CardSubtitle, CardHeader} from '@react-md/card'
 import './Home.css'
 
-const Home: React.FC = () => {
+const HomeScreen: React.FC = () => {
     return (
         <Grid clone={true} columns={2} desktopColumns={4}>
             <Card>
@@ -27,4 +27,4 @@ const Home: React.FC = () => {
     )
 }
 
-export default Home
+export default HomeScreen

@@ -1,9 +1,9 @@
 import {Layout, useLayoutNavigation} from '@react-md/layout'
 import React, { FC } from 'react'
 import {Link, Route, Switch, useLocation} from 'react-router-dom'
-import Home from './ui/app/Home'
-import navItems from './ui/app/navItems'
-import {UsersScreen} from './ui/Users/UsersScreen'
+import HomeScreen from './ui/home/HomeScreen'
+import navItems from './ui/layout/navItems'
+import {UsersScreen} from './ui/users/UsersScreen'
 
 const AppLayout: FC = ()  => {
     const { pathname } = useLocation()
@@ -16,7 +16,7 @@ const AppLayout: FC = ()  => {
             desktopLayout={'temporary'}
         >
             <Switch>
-                <Route path="/" exact={true} component={Home} />
+                <Route path="/" exact={true} component={HomeScreen} />
                 <Route path="/users" component={UsersScreen} />
             </Switch>
         </Layout>

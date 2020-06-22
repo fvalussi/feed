@@ -1,6 +1,6 @@
 import {instance, mock, verify} from 'ts-mockito'
 import {GetUsers} from '../../../core/useCases/User/GetUsers'
-import {UsersPresenter, UsersView} from '../../../ui/Users/UsersPresenter'
+import {UsersPresenter, UsersView} from '../../../ui/users/UsersPresenter'
 
 describe('User presenter', () => {
     it('should show loading before fetching users', async () => {

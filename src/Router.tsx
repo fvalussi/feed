@@ -1,4 +1,4 @@
-import AppLayout from './Layout'
+import AppLayout from './AppLayout'
 import React from 'react'
 import {BrowserRouter} from 'react-router-dom'
 
