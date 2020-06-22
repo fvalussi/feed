@@ -1,16 +1,14 @@
 import React from 'react'
-
-import { Text } from '../components'
-
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
+import Layout from './Layout'
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <div>test hi  </div>
-        <Text />
-    </div>
-  )
+    return (
+        <BrowserRouter>
+            <Layout/>
+        </BrowserRouter>
+    )
 }
 
 export default App
