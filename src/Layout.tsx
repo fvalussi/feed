@@ -13,7 +13,7 @@ const AppLayout: FC = ()  => {
             title="My Title"
             navHeaderTitle="Menu"
             treeProps={useLayoutNavigation(navItems, pathname, Link)}
-            desktopLayout={'toggleable'}
+            desktopLayout={'temporary'}
         >
             <Switch>
                 <Route path="/" exact={true} component={Home} />
