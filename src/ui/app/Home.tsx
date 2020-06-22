@@ -5,7 +5,7 @@ import './Home.css'
 const Home: React.FC = () => {
     return (
         <Text type="headline-4" align="center">
-            Home Page!!!
+            New Home Togg!!!
         </Text>
     )
 }
