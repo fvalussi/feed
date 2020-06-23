@@ -11,9 +11,8 @@ export class HttpUsersServices implements UsersService {
 
     async getUsers(): Promise<UsersResponse> {
         const response = await this.httpClient.get('api')
-        const {users} = response.data
         return {
-            users,
+            users: response.data,
         }
     }
 }

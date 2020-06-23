@@ -17,7 +17,7 @@ export class UsersPresenter {
 
     async start() {
         this.view.showLoading()
-        await this.getUsers.execute()
+        const users = await this.getUsers.execute()
         this.view.hideLoading()
     }
 }
