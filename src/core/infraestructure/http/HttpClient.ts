@@ -19,7 +19,7 @@ export class HttpClient {
             const response: AxiosResponse = await this.http.get(url)
             const { data, status, statusText } = response
             const hasError = !(status === 200)
-            return new Response(data.results, status, statusText, hasError)
+            return new Response(data, status, statusText, hasError)
         } catch (error) {
             // this.handleError(error)
             const { data, status, statusText } = error.response

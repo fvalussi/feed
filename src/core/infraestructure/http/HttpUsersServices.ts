@@ -10,9 +10,9 @@ export class HttpUsersServices implements UsersService {
     }
 
     async getUsers(): Promise<UsersResponse> {
-        const response = await this.httpClient.get('api')
+        const response = await this.httpClient.get('api/?page=1&results=2&seed=abc')
         return {
-            users: response.data,
+            users: response,
         }
     }
 }
