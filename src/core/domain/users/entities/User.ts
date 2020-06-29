@@ -1,7 +1,7 @@
 export class User {
-    private id: string
-    private name: string
-    private email: string
+    id: string
+    name: string
+    email: string
 
     constructor(id: string, email: string, name: string) {
         this.id = id

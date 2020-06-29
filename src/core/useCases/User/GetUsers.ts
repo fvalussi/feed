@@ -1,3 +1,4 @@
+import {User} from '../../domain/users/entities/User'
 import {UsersResponse} from '../../domain/users/UsersResponse'
 import {UsersService} from '../../domain/users/UsersService'
 
@@ -9,6 +10,14 @@ export class GetUsers {
     }
 
     public async execute(): Promise<UsersResponse> {
-        return this.userServices.getUsers()
+        const response = await this.userServices.getUsers()
+        const  { users } = response
+        return {
+            users: users.map(this.usersFromJson),
+        }
     }
+
+    private usersFromJson = (json: any): User => (
+        new User(json.id, json.email, json.name)
+    )
 }

@@ -1,9 +1,13 @@
+import {User} from '../../core/domain/users/entities/User'
+import {UserVM} from '../../core/domain/users/UserVM'
 import {GetUsers} from '../../core/useCases/User/GetUsers'
 
 export interface UsersView {
     showLoading(): void
 
     hideLoading(): void
+
+    showUser(users: UserVM[]): void
 }
 
 export class UsersPresenter {
@@ -17,7 +21,13 @@ export class UsersPresenter {
 
     async start() {
         this.view.showLoading()
-        const users = await this.getUsers.execute()
+        const usersResponse = await this.getUsers.execute()
+        const users = this.usersToViewModels(usersResponse.users)
+        this.view.showUser(users)
         this.view.hideLoading()
+    }
+
+    private usersToViewModels(users: User[]): UserVM[] {
+        return users.map((user) => user)
     }
 }
