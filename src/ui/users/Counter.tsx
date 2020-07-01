@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-export const Counter: React.FC<Props> = (props) => {
-    const [count, setCount] = useState(props.initial)
-    const reset = () => setCount(props.initial)
+export const Counter: React.FC<Props> = ({initial = 0}) => {
+    const [count, setCount] = useState(initial)
+    const reset = () => setCount(initial)
     const increment = () => setCount((prevCount: any) => prevCount + 1)
     const decrement = () => setCount((prevCount: any) => prevCount - 1)
 
@@ -12,14 +12,14 @@ export const Counter: React.FC<Props> = (props) => {
             <Text>Count: {count}</Text>
             <br/>
             <Button onClick={reset}>Reset</Button>
-            <Button onClick={increment}>+</Button>
             <Button onClick={decrement}>-</Button>
+            <Button onClick={increment}>+</Button>
         </Container>
     )
 }
 
 interface Props {
-    initial: number
+    initial?: number
 }
 
 const Container = styled.div`
