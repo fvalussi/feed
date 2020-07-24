@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Grid } from '@react-md/utils'
 import { Text } from '@react-md/typography'
 import { Card, CardContent, CardTitle, CardSubtitle, CardHeader} from '@react-md/card'
 import './Home.css'
+import CardCustom from '../components/CardCustom'
+import {ShowData} from './showData'
 
 const HomeScreen: React.FC = () => {
+    const [url, setUrl] = useState('')
+    const [saludos, setSaludos] = useState('hola')
     return (
         <Grid clone={true} columns={2} desktopColumns={4}>
             <Card>
@@ -23,6 +27,30 @@ const HomeScreen: React.FC = () => {
                     </Text>
                 </CardContent>
             </Card>
+            <Card>
+                <CardHeader>
+                    <CardTitle>Get Data</CardTitle>
+                    <CardSubtitle>example</CardSubtitle>
+                </CardHeader>
+                <CardContent>
+                    <Text>
+                        <input
+                            type={'text'}
+                            value={url}
+                            onChange={(e) => setUrl(e.target.value)}
+                        />
+                        <input
+                            type={'text'}
+                            value={saludos}
+                            onChange={(e) => setSaludos(e.target.value)}
+                        />
+                        <ShowData
+                            url={url}
+                        />
+                    </Text>
+                </CardContent>
+            </Card>
+            <CardCustom/>
         </Grid>
     )
 }
