@@ -1,5 +1,5 @@
-import { LayoutNavigationItem, LayoutNavigationTree } from '@react-md/layout'
-import { HomeSVGIcon, TvSVGIcon } from '@react-md/material-icons'
+import {LayoutNavigationItem, LayoutNavigationTree} from '@react-md/layout'
+import {HomeSVGIcon} from '@react-md/material-icons'
 import React, {ReactNode} from 'react'
 
 function createRoute(
@@ -19,7 +19,6 @@ function createRoute(
 
 const navItems: LayoutNavigationTree = {
     '/': createRoute('/', 'Home', <HomeSVGIcon />),
-    '/users': createRoute('/users', 'Users', <TvSVGIcon />),
 }
 
 export default navItems
