@@ -14,7 +14,7 @@ export const HomeScreen: React.FC = () => {
             <Header>
                 <input type={'text'} onInput={handleInput}/>
             </Header>
-            <Main>{searchText}</Main>
+            <Main>{searchText.length > 0 ? searchText : 'Empty state'}</Main>
             <Left>Left</Left>
             <Right>Right</Right>
             <Footer>Footer</Footer>
