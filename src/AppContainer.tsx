@@ -1,13 +1,8 @@
-import {Configuration} from '@react-md/layout'
-import React from 'react'
-import Router from './Router'
+import React from 'react';
+import HomeScreen from './ui/home/HomeScreen';
 
 const AppContainer: React.FC = () => {
-    return(
-        <Configuration>
-            <Router />
-        </Configuration>
-    )
-}
+  return <HomeScreen/>;
+};
 
-export default AppContainer
+export default AppContainer;
