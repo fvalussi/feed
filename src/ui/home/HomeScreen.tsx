@@ -1,18 +1,18 @@
-import React, {FormEvent, useState} from 'react'
+import React, { FormEvent, useState } from 'react'
 import './Home.scss'
 import styled from 'styled-components'
 
-const HomeScreen: React.FC = () => {
+export const HomeScreen: React.FC = () => {
     const [searchText, setSearchText] = useState('')
 
-    const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
-        setSearchText(e.currentTarget.value)
+    const handleInput = (e: FormEvent<HTMLInputElement>) => {
+      setSearchText(e.currentTarget.value)
     }
 
     return (
         <Container>
             <Header>
-                <input type={'text'} onInput={handleInput} />
+                <input type={'text'} onInput={handleInput}/>
             </Header>
             <Main>{searchText}</Main>
             <Left>Left</Left>
@@ -26,23 +26,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   @media all and (min-width: 768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
-}
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `
+
 const Header = styled.header`
   background: orange;
   @media all and (min-width: 768px) {
-          width: 100%;
+    width: 100%;
   }
 `
 
 const Left = styled.aside`
   background: yellowgreen;
   display: none;
-      @media all and (min-width: 768px) {
-        order: 1;
-        flex: 1;
+  @media all and (min-width: 768px) {
+    order: 1;
+    flex: 1;
   }
 `
 
@@ -57,18 +58,16 @@ const Main = styled.main`
 
 const Right = styled.aside`
   background: blue;
-        @media all and (min-width: 768px) {
-        order: 3;
-        flex: 1;
+  @media all and (min-width: 768px) {
+    order: 3;
+    flex: 1;
   }
 `
 
 const Footer = styled.footer`
   background: pink;
-    @media all and (min-width: 768px) {
-          width: 100%;
-           order: 4;
+  @media all and (min-width: 768px) {
+    width: 100%;
+    order: 4;
   }
 `
-
-export default HomeScreen
