@@ -1,12 +1,20 @@
-import React from 'react'
+import React, {FormEvent, useState} from 'react'
 import './Home.scss'
 import styled from 'styled-components'
 
 const HomeScreen: React.FC = () => {
+    const [searchText, setSearchText] = useState('')
+
+    const handleInput = (e: React.FormEvent<HTMLInputElement>) => {
+        setSearchText(e.currentTarget.value)
+    }
+
     return (
         <Container>
-            <Header>Header</Header>
-            <Main>Main</Main>
+            <Header>
+                <input type={'text'} onInput={handleInput} />
+            </Header>
+            <Main>{searchText}</Main>
             <Left>Left</Left>
             <Right>Right</Right>
             <Footer>Footer</Footer>
@@ -31,6 +39,7 @@ const Header = styled.header`
 
 const Left = styled.aside`
   background: yellowgreen;
+  display: none;
       @media all and (min-width: 768px) {
         order: 1;
         flex: 1;
