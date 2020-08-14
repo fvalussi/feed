@@ -1,11 +1,65 @@
 import React from 'react'
-import './Home.css'
+import './Home.scss'
+import styled from 'styled-components'
 
 const HomeScreen: React.FC = () => {
-
     return (
-            <div>Home</div>
+        <Container>
+            <Header>Header</Header>
+            <Main>Main</Main>
+            <Left>Left</Left>
+            <Right>Right</Right>
+            <Footer>Footer</Footer>
+        </Container>
     )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media all and (min-width: 768px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+}
+`
+const Header = styled.header`
+  background: orange;
+  @media all and (min-width: 768px) {
+          width: 100%;
+  }
+`
+
+const Left = styled.aside`
+  background: yellowgreen;
+      @media all and (min-width: 768px) {
+        order: 1;
+        flex: 1;
+  }
+`
+
+const Main = styled.main`
+  background: red;
+  @media all and (min-width: 768px) {
+    flex: 2;
+    order: 2;
+    min-height: 80vh;
+  }
+`
+
+const Right = styled.aside`
+  background: blue;
+        @media all and (min-width: 768px) {
+        order: 3;
+        flex: 1;
+  }
+`
+
+const Footer = styled.footer`
+  background: pink;
+    @media all and (min-width: 768px) {
+          width: 100%;
+           order: 4;
+  }
+`
 
 export default HomeScreen
