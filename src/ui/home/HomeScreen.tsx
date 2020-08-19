@@ -1,6 +1,7 @@
 import React, { FormEvent, useState } from 'react'
 import './Home.scss'
 import styled from 'styled-components'
+import {Search} from '../components/Search'
 
 export const HomeScreen: React.FC = () => {
     const [searchText, setSearchText] = useState('')
@@ -12,7 +13,7 @@ export const HomeScreen: React.FC = () => {
     return (
         <Container>
             <Header>
-                <input type={'text'} onInput={handleInput}/>
+                <Search onInput={handleInput}/>
             </Header>
             <Main>{searchText.length > 0 ? searchText : 'Empty state'}</Main>
             <Left>Left</Left>
@@ -33,6 +34,9 @@ const Container = styled.div`
 
 const Header = styled.header`
   background: orange;
+  display: flex;
+  justify-content: center;
+  height: 50px;
   @media all and (min-width: 768px) {
     width: 100%;
   }
