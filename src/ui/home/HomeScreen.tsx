@@ -1,26 +1,56 @@
-import React, { FormEvent, useState } from 'react'
+import React, { FormEvent } from 'react'
 import './Home.scss'
 import styled from 'styled-components'
-import {Search} from '../components/Search'
+import { Search } from '../components/Search'
+import { HomePresenter, HomeView } from '../HomePresenter'
+import { Provider } from '../../core/Provider'
 
-export const HomeScreen: React.FC = () => {
-    const [searchText, setSearchText] = useState('')
-
-    const handleInput = (e: FormEvent<HTMLInputElement>) => {
-      setSearchText(e.currentTarget.value)
+export class HomeScreen extends React.Component<any, State> implements HomeView {
+    private presenter: HomePresenter
+    state = {
+        posts: [],
     }
 
-    return (
-        <Container>
-            <Header>
-                <Search onInput={handleInput}/>
-            </Header>
-            <Main>{searchText.length > 0 ? searchText : 'Empty state'}</Main>
-            <Left>Left</Left>
-            <Right>Right</Right>
-            <Footer>Footer</Footer>
-        </Container>
-    )
+    constructor(props: any) {
+        super(props)
+        this.presenter = new HomePresenter(this, Provider.searchPosts())
+    }
+
+    onComponentDidMount() {
+        this.presenter.start()
+    }
+
+    handleInput = (e: FormEvent<HTMLInputElement>) => {
+        const searchText = e.currentTarget.value
+        this.presenter.search(searchText)
+    }
+
+    render() {
+        return (
+            <Container>
+                <Header>
+                    <Search onInput={this.handleInput}/>
+                </Header>
+                <Main>{this.state.posts.length > 0 ? this.state.posts[0] : 'Empty state'}</Main>
+                <Left>Left</Left>
+                <Right>Right</Right>
+                <Footer>Footer</Footer>
+            </Container>
+        )
+    }
+
+    renderPosts = (posts: string[]) => {
+        this.setState({posts})
+    }
+
+    showLoading(): void {
+        this.setState({posts: ['LOADING']})
+    }
+
+    hideLoading(): void {
+        // tslint:disable-next-line:no-console
+        console.log('hide loading')
+    }
 }
 
 const Container = styled.div`
@@ -75,3 +105,7 @@ const Footer = styled.footer`
     order: 4;
   }
 `
+
+interface State {
+    posts: string[]
+}

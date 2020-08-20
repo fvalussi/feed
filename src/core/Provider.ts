@@ -1,9 +1,9 @@
 import {HttpClient} from './infraestructure/http/HttpClient'
 import {HttpUsersServices} from './infraestructure/http/HttpUsersServices'
-import {GetUsers} from './useCases/User/GetUsers'
+import {SearchPosts} from './useCases/SearchPosts'
 
 export class Provider {
-    static getUsers() { return new GetUsers(D.usersServices())}
+    static searchPosts() { return new SearchPosts()}
 }
 
 class Dependencies {
