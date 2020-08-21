@@ -1,9 +1,30 @@
-import React, { FormEvent } from 'react'
+import React, {FormEvent} from 'react'
 import './Home.scss'
 import styled from 'styled-components'
-import { Search } from '../components/Search'
-import { HomePresenter, HomeView } from '../HomePresenter'
-import { Provider } from '../../core/Provider'
+import {Search} from '../components/Search'
+import {HomePresenter, HomeView} from './HomePresenter'
+import {Provider} from '../../core/Provider'
+import {Post} from '../../core/domain/post/Post'
+
+function PostComponent(props: { post: Post }) {
+
+    // tslint:disable-next-line:no-shadowed-variable
+    const Container = styled.div`
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+`
+    return <Container>
+        <Header>{props.post.title}</Header>
+        {props.post.content}
+        <Footer>{props.post.author} - {props.post.date.toString()}</Footer>
+    </Container>
+}
 
 export class HomeScreen extends React.Component<any, State> implements HomeView {
     private presenter: HomePresenter
@@ -31,7 +52,9 @@ export class HomeScreen extends React.Component<any, State> implements HomeView 
                 <Header>
                     <Search onInput={this.handleInput}/>
                 </Header>
-                <Main>{this.state.posts.length > 0 ? this.state.posts[0] : 'Empty state'}</Main>
+                <Main>
+                    {this.state.posts.map((post: Post) => <PostComponent key={post.title} post={post}/>)}
+                </Main>
                 <Left>Left</Left>
                 <Right>Right</Right>
                 <Footer>Footer</Footer>
@@ -39,12 +62,12 @@ export class HomeScreen extends React.Component<any, State> implements HomeView 
         )
     }
 
-    renderPosts = (posts: string[]) => {
+    renderPosts = (posts: Post[]) => {
         this.setState({posts})
     }
 
     showLoading(): void {
-        this.setState({posts: ['LOADING']})
+        this.setState({posts: []})
     }
 
     hideLoading(): void {
@@ -107,5 +130,5 @@ const Footer = styled.footer`
 `
 
 interface State {
-    posts: string[]
+    posts: Post[]
 }

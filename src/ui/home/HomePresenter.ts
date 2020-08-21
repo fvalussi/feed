@@ -1,4 +1,5 @@
-import { SearchPosts } from '../core/useCases/SearchPosts'
+import {SearchPosts} from '../../core/useCases/SearchPosts'
+import {Post} from '../../core/domain/post/Post'
 
 export class HomePresenter {
     private view: HomeView
@@ -24,7 +25,7 @@ export class HomePresenter {
 export interface HomeView {
     showLoading(): void
 
-    renderPosts(posts: string[]): void
+    renderPosts(posts: Post[]): void
 
     hideLoading(): void
 }
