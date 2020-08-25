@@ -10,19 +10,24 @@ function PostComponent(props: { post: Post }) {
 
     // tslint:disable-next-line:no-shadowed-variable
     const Container = styled.div`
-  background-color: yellow;
-  display: flex;
-  flex-direction: column;
+  background-color: white;
   margin: 10px;
-  @media all and (min-width: 768px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+  height: 300px;
+  width: 250px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  padding: 10px;
+`
+    const Image = styled.img`
+      background-color: green;
+      height: 50%;
+      min-width: 100%;
 `
     return <Container>
-        <Header>{props.post.title}</Header>
-        {props.post.content}
-        <Footer>{props.post.author} - {props.post.date.toString()}</Footer>
+        <Image/>
+        <div>{props.post.title}</div>
+        <div>{props.post.author} - {props.post.date.toLocaleString()}</div>
+        <div>{props.post.content}</div>
     </Container>
 }
 
@@ -106,6 +111,8 @@ const Left = styled.aside`
 
 const Main = styled.main`
   background: red;
+  display: flex;
+  flex-wrap: wrap;
   @media all and (min-width: 768px) {
     flex: 2;
     order: 2;
