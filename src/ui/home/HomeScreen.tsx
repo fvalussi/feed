@@ -5,7 +5,7 @@ import {Search} from '../components/Search'
 import {HomePresenter, HomeView} from './HomePresenter'
 import {Provider} from '../../core/Provider'
 import {Post} from '../../core/domain/post/Post'
-import PostComponent from '../components/Post'
+import PostComponent from '../components/PostComponent'
 
 export class HomeScreen extends React.Component<any, State> implements HomeView {
     private presenter: HomePresenter
