@@ -5,31 +5,7 @@ import {Search} from '../components/Search'
 import {HomePresenter, HomeView} from './HomePresenter'
 import {Provider} from '../../core/Provider'
 import {Post} from '../../core/domain/post/Post'
-
-function PostComponent(props: { post: Post }) {
-
-    // tslint:disable-next-line:no-shadowed-variable
-    const Container = styled.div`
-  background-color: white;
-  margin: 10px;
-  height: 300px;
-  width: 250px;
-  flex-wrap: wrap;
-  overflow: hidden;
-  padding: 10px;
-`
-    const Image = styled.img`
-      background-color: green;
-      height: 50%;
-      min-width: 100%;
-`
-    return <Container>
-        <Image/>
-        <div>{props.post.title}</div>
-        <div>{props.post.author} - {props.post.date.toLocaleString()}</div>
-        <div>{props.post.content}</div>
-    </Container>
-}
+import PostComponent from '../components/Post'
 
 export class HomeScreen extends React.Component<any, State> implements HomeView {
     private presenter: HomePresenter
@@ -52,19 +28,20 @@ export class HomeScreen extends React.Component<any, State> implements HomeView 
     }
 
     render() {
-        return (
-            <Container>
-                <Header>
-                    <Search onInput={this.handleInput}/>
-                </Header>
-                <Main>
-                    {this.state.posts.map((post: Post) => <PostComponent key={post.title} post={post}/>)}
-                </Main>
-                <Left>Left</Left>
-                <Right>Right</Right>
-                <Footer>Footer</Footer>
-            </Container>
-        )
+        return <Container>
+            <Header>
+                <Search onInput={this.handleInput}/>
+            </Header>
+            <Main>
+                {this.state.posts.length ?
+                    this.state.posts.map((post: Post) => <PostComponent key={post.title} post={post}/>) :
+                    <div>Empty</div>
+                }
+            </Main>
+            <Left>Left</Left>
+            <Right>Right</Right>
+            <Footer>Footer</Footer>
+        </Container>
     }
 
     renderPosts = (posts: Post[]) => {
