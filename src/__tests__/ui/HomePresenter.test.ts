@@ -1,6 +1,7 @@
-import { HomePresenter, HomeView } from '../../ui/HomePresenter'
+import { HomePresenter, HomeView } from '../../ui/home/HomePresenter'
 import { instance, mock, verify, when } from 'ts-mockito'
 import { SearchPosts } from '../../core/useCases/SearchPosts'
+import { Post } from '../../core/domain/post/Post'
 
 describe('HomePresenter', () => {
     it('should load posts given a search text', async () => {
@@ -14,7 +15,9 @@ describe('HomePresenter', () => {
         verify(view.hideLoading()).called()
     })
 
-    const POSTS: string[] = ['']
+    const POSTS = [
+        new Post('', '', new Date(), ''),
+    ]
     const SEARCH_TEXT = ''
 
     const view = mock<HomeView>()
